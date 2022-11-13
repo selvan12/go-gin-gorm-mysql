@@ -37,7 +37,7 @@ func (a *App) listBooks(c *gin.Context) {
 func (a *App) getBook(c *gin.Context) {
 	var book model.Book
 	id := c.Param("id")
-	fmt.Println("PATCH api called and ID = ", id)
+	fmt.Println("GET api called and ID = ", id)
 
 	err := model.GetBook(a.Db, &book, id)
 	if err != nil {
