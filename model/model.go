@@ -15,6 +15,7 @@ type Book struct {
 	DatePublished string  `json:"date_published"`
 }
 
+// GetBooks - fetch the list of books
 func GetBooks(db *gorm.DB, book *[]Book) (err error) {
 	err = db.Find(book).Error
 	if err != nil {
@@ -23,6 +24,7 @@ func GetBooks(db *gorm.DB, book *[]Book) (err error) {
 	return nil
 }
 
+// GetBook by ID
 func GetBook(db *gorm.DB, book *Book, id string) (err error) {
 	err = db.Where("id = ?", id).Find(book).Error
 	if err != nil {
@@ -31,6 +33,7 @@ func GetBook(db *gorm.DB, book *Book, id string) (err error) {
 	return nil
 }
 
+// CreateBook create a book entry
 func CreateBook(db *gorm.DB, book *Book) (err error) {
 	err = db.Create(book).Error
 	if err != nil {
@@ -39,11 +42,13 @@ func CreateBook(db *gorm.DB, book *Book) (err error) {
 	return nil
 }
 
+// UpdateBook update book by id
 func UpdateBook(db *gorm.DB, book *Book, id string) (err error) {
 	db.Save(book)
 	return nil
 }
 
+// DeleteBook delete the book entry by id
 func DeleteBook(db *gorm.DB, book *Book, id string) (err error) {
 	err = db.Where("id = ?", id).Delete(book).Error
 	if err != nil {

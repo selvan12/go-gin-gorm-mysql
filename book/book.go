@@ -21,6 +21,7 @@ type Req struct {
 }
 */
 
+// listBooks handler to list books
 func (a *App) listBooks(c *gin.Context) {
 	var books []model.Book
 	err := model.GetBooks(a.Db, &books)
@@ -32,6 +33,7 @@ func (a *App) listBooks(c *gin.Context) {
 	c.JSON(http.StatusOK, books)
 }
 
+// getBook handler to get book by id
 func (a *App) getBook(c *gin.Context) {
 	var book model.Book
 	id := c.Param("id")
@@ -47,6 +49,7 @@ func (a *App) getBook(c *gin.Context) {
 	c.JSON(http.StatusOK, book)
 }
 
+// createBook handler to create book entry
 func (a *App) createBook(c *gin.Context) {
 	var book model.Book
 	//var req Book
@@ -73,6 +76,7 @@ func (a *App) createBook(c *gin.Context) {
 	c.JSON(http.StatusCreated, book)
 }
 
+// patchBook handler to update book by id
 func (a *App) patchBook(c *gin.Context) {
 	var book model.Book
 	id := c.Param("id")
@@ -96,6 +100,7 @@ func (a *App) patchBook(c *gin.Context) {
 	c.JSON(http.StatusOK, book)
 }
 
+// deleteBook handler to delete the book entry by id
 func (a *App) deleteBook(c *gin.Context) {
 	var book model.Book
 	id := c.Param("id")

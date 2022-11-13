@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// add all available routes
 func (a *App) AddRoutes(r *gin.Engine) {
 	log.Println("AddRoutes In")
 
@@ -16,7 +17,7 @@ func (a *App) AddRoutes(r *gin.Engine) {
 		c.JSON(http.StatusOK, "Hello.. Welcome !!!")
 	})
 
-	// REST CRUD operations for books MySQL database
+	// REST CRUD operation handlers for books GORM MySQL database
 	r.GET("/books", a.listBooks)
 	r.GET("/books/:id", a.getBook)
 	r.POST("/books", a.createBook)
