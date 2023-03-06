@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// add all available routes
+// AddRoutes add all available routes
 func (a *App) AddRoutes(r *gin.Engine) {
 	log.Println("AddRoutes In")
 

@@ -14,13 +14,13 @@ const (
 	dbname   = "bookshop"
 )
 
-// InitDatabase ..
+// InitDatabase calls databaseConnection func
 func InitDatabase() *gorm.DB {
 	fmt.Println("InitDatabase In")
 	return databaseConnection()
 }
 
-// connect to the mySQL database
+// databaseConnection makes connect to the mySQL database
 func databaseConnection() *gorm.DB {
 	var err error
 	// DataSourceName is "root:root@tcp(127.0.0.1:3306)/bookshop"
